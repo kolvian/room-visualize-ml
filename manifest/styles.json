@@ -1,0 +1,161 @@
+{
+  "version": "1.0.0",
+  "updated": "2025-10-18T00:00:00Z",
+  "styles": [
+    {
+      "id": "sci-fi",
+      "displayName": "Sci-Fi",
+      "description": "Futuristic science fiction aesthetic with neon colors and cyberpunk elements",
+      "category": "sci-fi",
+      "modelPath": "../models/exported/sci-fi.mlmodel",
+      "thumbnailPath": "../models/exported/thumbnails/sci-fi.jpg",
+      "inputSize": {
+        "width": 256,
+        "height": 256
+      },
+      "outputSize": {
+        "width": 256,
+        "height": 256
+      },
+      "computeUnits": "ALL",
+      "performance": {
+        "avgInferenceMs": 45.0,
+        "fps": 22.0,
+        "modelSizeMB": 6.8
+      },
+      "metadata": {
+        "author": "Style Transfer Models",
+        "version": "1.0",
+        "framework": "pytorch",
+        "quantized": true,
+        "created": "2025-10-18T00:00:00Z"
+      },
+      "notes": "Best for urban and interior scenes. Optimized for Neural Engine.",
+      "enabled": true
+    },
+    {
+      "id": "fantasy",
+      "displayName": "Fantasy",
+      "description": "Magical fantasy world with vibrant colors and ethereal effects",
+      "category": "fantasy",
+      "modelPath": "../models/exported/fantasy.mlmodel",
+      "thumbnailPath": "../models/exported/thumbnails/fantasy.jpg",
+      "inputSize": {
+        "width": 256,
+        "height": 256
+      },
+      "outputSize": {
+        "width": 256,
+        "height": 256
+      },
+      "computeUnits": "ALL",
+      "performance": {
+        "avgInferenceMs": 48.0,
+        "fps": 20.0,
+        "modelSizeMB": 7.2
+      },
+      "metadata": {
+        "author": "Style Transfer Models",
+        "version": "1.0",
+        "framework": "pytorch",
+        "quantized": true,
+        "created": "2025-10-18T00:00:00Z"
+      },
+      "notes": "Ideal for nature and landscape AR visualizations.",
+      "enabled": true
+    },
+    {
+      "id": "modern",
+      "displayName": "Modern Art",
+      "description": "Contemporary modern art style with bold shapes and colors",
+      "category": "modern",
+      "modelPath": "../models/exported/modern.mlmodel",
+      "thumbnailPath": "../models/exported/thumbnails/modern.jpg",
+      "inputSize": {
+        "width": 256,
+        "height": 256
+      },
+      "outputSize": {
+        "width": 256,
+        "height": 256
+      },
+      "computeUnits": "ALL",
+      "performance": {
+        "avgInferenceMs": 42.0,
+        "fps": 24.0,
+        "modelSizeMB": 6.5
+      },
+      "metadata": {
+        "author": "Style Transfer Models",
+        "version": "1.0",
+        "framework": "tensorflow",
+        "quantized": true,
+        "created": "2025-10-18T00:00:00Z"
+      },
+      "notes": "Great for architectural visualization.",
+      "enabled": true
+    },
+    {
+      "id": "impressionist",
+      "displayName": "Impressionism",
+      "description": "Classic impressionist painting style inspired by Monet and Renoir",
+      "category": "impressionism",
+      "modelPath": "../models/exported/impressionist.mlmodel",
+      "thumbnailPath": "../models/exported/thumbnails/impressionist.jpg",
+      "inputSize": {
+        "width": 256,
+        "height": 256
+      },
+      "outputSize": {
+        "width": 256,
+        "height": 256
+      },
+      "computeUnits": "CPU_AND_GPU",
+      "performance": {
+        "avgInferenceMs": 55.0,
+        "fps": 18.0,
+        "modelSizeMB": 8.1
+      },
+      "metadata": {
+        "author": "Style Transfer Models",
+        "version": "1.0",
+        "framework": "pytorch",
+        "quantized": false,
+        "created": "2025-10-18T00:00:00Z"
+      },
+      "notes": "Higher quality, slightly slower. Best for outdoor scenes.",
+      "enabled": true
+    },
+    {
+      "id": "abstract",
+      "displayName": "Abstract",
+      "description": "Abstract expressionism with vibrant patterns and textures",
+      "category": "abstract",
+      "modelPath": "../models/exported/abstract.mlmodel",
+      "thumbnailPath": "../models/exported/thumbnails/abstract.jpg",
+      "inputSize": {
+        "width": 256,
+        "height": 256
+      },
+      "outputSize": {
+        "width": 256,
+        "height": 256
+      },
+      "computeUnits": "ALL",
+      "performance": {
+        "avgInferenceMs": 50.0,
+        "fps": 20.0,
+        "modelSizeMB": 7.0
+      },
+      "metadata": {
+        "author": "Style Transfer Models",
+        "version": "1.0",
+        "framework": "tensorflow",
+        "quantized": true,
+        "created": "2025-10-18T00:00:00Z"
+      },
+      "notes": "Versatile style suitable for various AR experiences.",
+      "enabled": true
+    }
+  ]
+}

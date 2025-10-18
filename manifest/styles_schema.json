@@ -1,0 +1,153 @@
+{
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "title": "Style Transfer Models Manifest",
+  "description": "Manifest mapping Core ML models to StyleDescriptor objects for iOS/visionOS apps",
+  "type": "object",
+  "properties": {
+    "version": {
+      "type": "string",
+      "description": "Manifest version",
+      "pattern": "^\\d+\\.\\d+\\.\\d+$"
+    },
+    "updated": {
+      "type": "string",
+      "description": "Last update timestamp (ISO 8601)",
+      "format": "date-time"
+    },
+    "styles": {
+      "type": "array",
+      "description": "Array of style descriptors",
+      "items": {
+        "$ref": "#/definitions/StyleDescriptor"
+      }
+    }
+  },
+  "required": ["version", "updated", "styles"],
+  "definitions": {
+    "StyleDescriptor": {
+      "type": "object",
+      "description": "Descriptor for a single style transfer model",
+      "properties": {
+        "id": {
+          "type": "string",
+          "description": "Unique identifier (kebab-case)",
+          "pattern": "^[a-z0-9-]+$"
+        },
+        "displayName": {
+          "type": "string",
+          "description": "Human-readable name for UI display"
+        },
+        "description": {
+          "type": "string",
+          "description": "Brief description of the style"
+        },
+        "category": {
+          "type": "string",
+          "description": "Style category",
+          "enum": ["sci-fi", "fantasy", "modern", "abstract", "impressionism", "expressionism", "other"]
+        },
+        "modelPath": {
+          "type": "string",
+          "description": "Relative path to .mlmodel file from manifest"
+        },
+        "thumbnailPath": {
+          "type": "string",
+          "description": "Optional path to thumbnail image"
+        },
+        "inputSize": {
+          "type": "object",
+          "description": "Expected input dimensions",
+          "properties": {
+            "width": {
+              "type": "integer",
+              "minimum": 128,
+              "maximum": 2048
+            },
+            "height": {
+              "type": "integer",
+              "minimum": 128,
+              "maximum": 2048
+            }
+          },
+          "required": ["width", "height"]
+        },
+        "outputSize": {
+          "type": "object",
+          "description": "Output dimensions",
+          "properties": {
+            "width": {
+              "type": "integer"
+            },
+            "height": {
+              "type": "integer"
+            }
+          },
+          "required": ["width", "height"]
+        },
+        "computeUnits": {
+          "type": "string",
+          "description": "Recommended compute units",
+          "enum": ["ALL", "CPU_AND_GPU", "CPU_ONLY", "CPU_AND_NE"]
+        },
+        "performance": {
+          "type": "object",
+          "description": "Performance metrics",
+          "properties": {
+            "avgInferenceMs": {
+              "type": "number",
+              "description": "Average inference time in milliseconds"
+            },
+            "fps": {
+              "type": "number",
+              "description": "Frames per second"
+            },
+            "modelSizeMB": {
+              "type": "number",
+              "description": "Model file size in megabytes"
+            }
+          }
+        },
+        "metadata": {
+          "type": "object",
+          "description": "Additional metadata",
+          "properties": {
+            "author": {
+              "type": "string"
+            },
+            "version": {
+              "type": "string"
+            },
+            "framework": {
+              "type": "string",
+              "enum": ["pytorch", "tensorflow"]
+            },
+            "quantized": {
+              "type": "boolean"
+            },
+            "created": {
+              "type": "string",
+              "format": "date-time"
+            }
+          }
+        },
+        "notes": {
+          "type": "string",
+          "description": "Additional notes or usage guidance"
+        },
+        "enabled": {
+          "type": "boolean",
+          "description": "Whether this style is enabled",
+          "default": true
+        }
+      },
+      "required": [
+        "id",
+        "displayName",
+        "category",
+        "modelPath",
+        "inputSize",
+        "computeUnits"
+      ]
+    }
+  }
+}

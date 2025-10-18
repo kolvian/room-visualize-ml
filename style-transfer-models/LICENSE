@@ -1,0 +1,83 @@
+MIT License
+
+Copyright (c) 2025 Style Transfer Models Contributors
+
+Permission is hereby granted, free of charge, to any person obtaining a copy
+of this software and associated documentation files (the "Software"), to deal
+in the Software without restriction, including without limitation the rights
+to use, copy, modify, merge, publish, distribute, sublicense, and/or sell
+copies of the Software, and to permit persons to whom the Software is
+furnished to do so, subject to the following conditions:
+
+The above copyright notice and this permission notice shall be included in all
+copies or substantial portions of the Software.
+
+THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR
+IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,
+FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE
+AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
+LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
+OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
+SOFTWARE.
+
+---
+
+## Third-Party Licenses and Attributions
+
+### COCO Dataset
+- **License**: Creative Commons Attribution 4.0 License
+- **Citation**: Lin, T.-Y., et al. "Microsoft COCO: Common Objects in Context." ECCV 2014.
+- **URL**: https://cocodataset.org/
+
+### VGG Network Weights
+- **License**: Creative Commons Attribution License
+- **Citation**: Simonyan, K. and Zisserman, A. "Very Deep Convolutional Networks for Large-Scale Image Recognition." ICLR 2015.
+
+### Style Transfer Architecture
+- **Based on**: Johnson, J., et al. "Perceptual Losses for Real-Time Style Transfer and Super-Resolution." ECCV 2016.
+- **License**: MIT License
+- **URL**: https://github.com/jcjohnson/fast-neural-style
+
+### PyTorch
+- **License**: BSD-style license
+- **URL**: https://github.com/pytorch/pytorch
+
+### TensorFlow
+- **License**: Apache License 2.0
+- **URL**: https://github.com/tensorflow/tensorflow
+
+### Core ML Tools
+- **License**: BSD License
+- **Copyright**: Copyright © 2017-2024 Apple Inc.
+- **URL**: https://github.com/apple/coremltools
+
+---
+
+## Dataset Usage Notice
+
+When using this repository with external datasets (COCO, WikiArt, etc.), please:
+
+1. **Respect original licenses** - Each dataset has its own license terms
+2. **Provide proper attribution** - Cite the original dataset creators
+3. **Check commercial use restrictions** - Some datasets restrict commercial use
+4. **Download datasets legally** - Use official sources and APIs
+
+For WikiArt and other artistic style datasets:
+- Artworks may be copyrighted
+- Verify rights before commercial deployment
+- Consider public domain or CC-licensed artworks only
+
+---
+
+## Model Attribution
+
+If you distribute models trained using this repository:
+
+1. Include this LICENSE file
+2. Attribute the original style transfer architecture
+3. Mention the training dataset used
+4. Disclose any modifications made to the code
+
+---
+
+For questions about licensing, please open an issue on the repository.

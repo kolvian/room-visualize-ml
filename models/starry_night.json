@@ -1,0 +1,27 @@
+{
+  "framework": "pytorch",
+  "source_model": "checkpoints/starry_night/starry-night_epoch_1.pth",
+  "output_model": "models/starry_night.mlpackage",
+  "style_name": "starry-night",
+  "input_size": [
+    256,
+    256
+  ],
+  "compute_units": "ALL",
+  "quantized": false,
+  "validation": {
+    "valid": true,
+    "input_shape": [
+      1,
+      3,
+      256,
+      256
+    ],
+    "output_shape": [
+      1,
+      3,
+      256,
+      256
+    ]
+  }
+}

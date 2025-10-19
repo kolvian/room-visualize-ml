@@ -41,15 +41,21 @@ python training/pytorch/train.py \
   --checkpoint-dir checkpoints/test
 ```
 
-## Option 2: Download COCO Dataset (1 minute download time)
+## Option 2: Download COCO Dataset
 
 ```bash
-# Download and prepare COCO dataset
+# Download and prepare COCO dataset (full ~18GB, 94k images)
 cd style-transfer-models
 python datasets/scripts/download_prepare.py \
   --dataset coco \
   --output-dir datasets/coco \
   --target-size 256 256
+
+# RECOMMENDED: Create a small 1000-image subset for fast training (2-5 min per epoch)
+python datasets/scripts/create_subset.py \
+  --source datasets/coco/train \
+  --output datasets/coco/train_small \
+  --num-images 1000
 ```
 
 ## Train Your First Model (2-10 minutes depending on hardware)
@@ -57,14 +63,25 @@ python datasets/scripts/download_prepare.py \
 ### PyTorch
 
 ```bash
+# Fast training with small dataset (recommended for testing)
 python training/pytorch/train.py \
-  --content-dir datasets/coco/train \
+  --content-dir datasets/coco/train_small \
   --style-image datasets/sample/styles/starry_night.jpg \
   --style-name starry-night \
-  --epochs 10 \
+  --epochs 2 \
   --batch-size 4 \
   --checkpoint-dir checkpoints/starry_night \
   --lr 1e-3
+
+# OR full dataset for production (much slower, 3-4 hours per epoch)
+# python training/pytorch/train.py \
+#   --content-dir datasets/coco/train \
+#   --style-image datasets/sample/styles/starry_night.jpg \
+#   --style-name starry-night \
+#   --epochs 10 \
+#   --batch-size 4 \
+#   --checkpoint-dir checkpoints/starry_night \
+#   --lr 1e-3
 ```
 
 ### TensorFlow

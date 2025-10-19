@@ -60,7 +60,8 @@ class ModelConverter:
         
         # Import model architecture
         import sys
-        sys.path.append(str(Path(__file__).parent.parent / 'pytorch'))
+        training_path = Path(__file__).parent.parent / 'training' / 'pytorch'
+        sys.path.insert(0, str(training_path))
         from model import StyleTransferNet
         
         print(f"Loading PyTorch model from: {model_path}")
@@ -210,14 +211,14 @@ class ModelConverter:
         """
         print(f"Adding metadata to {model_path}...")
         
-        model = MLModel(str(model_path))
+        # Load the model
+        model = ct.models.MLModel(str(model_path))
         
-        # Set metadata
-        model.author = author
-        model.short_description = f"{style_name.title()} style transfer model"
-        model.version = version
-        
+        # Set metadata using the spec
         spec = model.get_spec()
+        spec.description.metadata.shortDescription = f"{style_name.title()} style transfer model"
+        spec.description.metadata.author = author
+        spec.description.metadata.versionString = version
         spec.description.metadata.userDefined['style'] = style_name
         spec.description.metadata.userDefined['framework'] = self.framework
         
@@ -225,8 +226,8 @@ class ModelConverter:
         spec.description.input[0].shortDescription = 'Input image (RGB, normalized to [0, 1])'
         spec.description.output[0].shortDescription = 'Stylized output image (RGB, [0, 1])'
         
-        # Save updated model
-        model = MLModel(spec)
+        # Save updated model (preserves weights for mlpackage)
+        model = ct.models.MLModel(spec, weights_dir=str(model_path) if str(model_path).endswith('.mlpackage') else None)
         model.save(str(model_path))
         
         print(f"✓ Metadata added successfully")
@@ -392,13 +393,14 @@ def main():
         )
     
     if output_path:
-        # Add metadata
-        converter.add_metadata(
-            output_path,
-            style_name=args.style_name,
-            author=args.author,
-            version=args.version
-        )
+        # Add metadata - DISABLED for mlpackage to preserve weights
+        # TODO: Fix metadata addition for mlpackage format
+        # converter.add_metadata(
+        #     output_path,
+        #     style_name=args.style_name,
+        #     author=args.author,
+        #     version=args.version
+        # )
         
         # Validate model
         validation_results = converter.validate_model(

@@ -254,8 +254,16 @@ def save_training_config(config, output_path):
     output_path = Path(output_path)
     output_path.parent.mkdir(parents=True, exist_ok=True)
     
+    # Convert Path objects to strings for JSON serialization
+    json_config = {}
+    for key, value in config.items():
+        if isinstance(value, Path):
+            json_config[key] = str(value)
+        else:
+            json_config[key] = value
+    
     with open(output_path, 'w') as f:
-        json.dump(config, f, indent=2)
+        json.dump(json_config, f, indent=2)
 
 
 def load_training_config(config_path):
